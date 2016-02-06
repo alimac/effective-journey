@@ -1,0 +1,34 @@
+{
+    "name": "alimac/hello_world",
+    "description": "Hello, world",
+    "type": "project",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Alina Mackenzie",
+            "email": "hello@alimac.io"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packagist.drupal-composer.org/"
+        }
+    ],
+    "require": {
+        "craychee/rootcanal": "dev-master",
+        "drupal/drupal": "7.42"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "bin/rootcanal"
+        ],
+        "post-update-cmd": [
+            "bin/rootcanal"
+        ]
+    }
+}
