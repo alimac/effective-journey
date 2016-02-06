@@ -17,11 +17,11 @@ Feature:
   @step2
   Scenario Outline: Create terms
     Examples:
-    | term       |
-    | "About Us" |
-    | "Misc"     |
-    | "News"     |
-    Given a "Sections" term with the name <term>
+    | term     |
+    | About Us |
+    | Misc     |
+    | News     |
+    Given a "Sections" term with the name "<term>"
     And I am logged in as a user with the "administrator" role
     When I go to "admin/structure/taxonomy/sections"
-    Then I should see the link <term>
+    Then I should see the link "<term>"
