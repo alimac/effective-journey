@@ -25,3 +25,27 @@ Feature:
     And I am logged in as a user with the "administrator" role
     When I go to "admin/structure/taxonomy/sections"
     Then I should see the link "<term>"
+
+  @step3
+  Scenario Outline: Create nodes with terms
+    Examples:
+      | title     | sections |
+      | Article 1 | News     |
+      | Article 2 | News     |
+      | Article 3 | About Us |
+      | Article 4 | Misc     |
+    Given "Sections" terms:
+    | name     |
+    | About Us |
+    | Misc     |
+    | News     |
+    And "Hello World Article" content:
+    | title     | body        | field_sections |
+    | Article 1 | Lorem ipsum | News           |
+    | Article 2 | Lorem ipsum | News           |
+    | Article 3 | Lorem ipsum | About Us       |
+    | Article 4 | Lorem ipsum | Misc           |
+    When I am on the homepage
+    Then I should see the link "<title>"
+    And I click "<title>"
+    And I should see the link "<sections>"
