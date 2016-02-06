@@ -71,3 +71,8 @@ Feature:
   Scenario: Do not show block on other nodes
     Given I am on the homepage
     Then I should not see the text "Hello World!"
+
+  @step5 @step5b
+  Scenario: Show links to Hello World Article nodes in block
+    Given I am viewing a "Hello World Article" with the title "Article 1"
+    Then I should see the link "Article 1" in the "sidebar_second" region
