@@ -14,6 +14,7 @@ Feature:
     And the "edit-modules-features-features-enable" checkbox should be checked
     And the "edit-modules-features-content-type-vocab-hello-world-enable" checkbox should be checked
 
+  @step2
   Scenario Outline: Create terms
     Examples:
     | term       |
