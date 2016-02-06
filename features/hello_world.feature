@@ -49,3 +49,9 @@ Feature:
     Then I should see the link "<title>"
     And I click "<title>"
     And I should see the link "<sections>"
+
+  @step4
+  Scenario: Check that Bartik theme is enabled
+    Given I am logged in as a user with the "administrator" role
+    When I am at "/admin/appearance"
+    Then I should see text matching "Bartik 7.\d+ \(default theme\)"
