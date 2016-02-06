@@ -15,6 +15,7 @@ echo "Installing Drupal like a boss."
 $drush si --site-name=hello_world --account-pass=admin
 
 # Modules
+echo "Disable/enable selected modules."
 $drush dis overlay -y
 $drush en features -y
 $drush en content_type_vocab_hello_world -y
