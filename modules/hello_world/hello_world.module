@@ -1,1 +1,26 @@
 <?php
+
+/**
+ * Implements hook_block_info().
+ */
+function hello_world_block_info() {
+  $blocks['hello_world'] = array(
+    // The name that will appear in the block list.
+    'info' => t('Hello World'),
+    'status' => TRUE,
+    'region' => 'sidebar_second'
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function hello_world_block_view($delta = '') {
+
+  $block = array();
+  $block['subject'] = t('Hello World!');
+  $block['content'] = '';
+
+  return $block;
+}

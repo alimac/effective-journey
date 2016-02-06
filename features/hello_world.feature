@@ -55,3 +55,10 @@ Feature:
     Given I am logged in as a user with the "administrator" role
     When I am at "/admin/appearance"
     Then I should see text matching "Bartik 7.\d+ \(default theme\)"
+
+  @step5 @step5a
+  Scenario: Create a custom block
+    Given I am logged in as a user with the "administrator" role
+    When I am at "/admin/structure/block"
+    Then I should see the text "Hello World"
+    And the "blocks[hello_world_hello_world][region]" field should contain "sidebar_second"
