@@ -3,3 +3,4 @@ description = Custom module
 core = 7.x
 package = Hello World
 dependencies[] = content_type_vocab_hello_world
+stylesheets[all][] = hello_world.css
