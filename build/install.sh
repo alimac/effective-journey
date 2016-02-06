@@ -16,3 +16,6 @@ $drush si --site-name=hello_world --account-pass=admin
 
 # Modules
 $drush dis overlay -y
+$drush en features -y
+$drush en content_type_vocab_hello_world -y
+$drush en hello_world -y
