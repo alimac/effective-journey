@@ -13,3 +13,6 @@ echo "Symlink settings.php into our Drupal."
 ln -sf $base/cnf/settings.php $base/www/sites/default/
 echo "Installing Drupal like a boss."
 $drush si --site-name=hello_world --account-pass=admin
+
+# Modules
+$drush dis overlay -y
