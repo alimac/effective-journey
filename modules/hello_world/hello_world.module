@@ -20,7 +20,7 @@ function hello_world_block_view($delta = '') {
 
   $block = array();
   $block['subject'] = t('Hello World!');
-  $block['content'] = '';
+  $block['content'] = t('Foo');
 
   return $block;
 }
