@@ -62,3 +62,12 @@ Feature:
     When I am at "/admin/structure/block"
     Then I should see the text "Hello World"
     And the "blocks[hello_world_hello_world][region]" field should contain "sidebar_second"
+
+  @step5 @step5a
+  Scenario: Show block on Hello World Article nodes
+    Given I am viewing a "Hello World Article" with the title "Article 1"
+    Then I should see the text "Hello World!"
+
+  Scenario: Do not show block on other nodes
+    Given I am on the homepage
+    Then I should not see the text "Hello World!"
