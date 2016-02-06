@@ -18,6 +18,7 @@
     ],
     "require": {
         "drush/drush": "7.*",
+        "drupal/features": "7.*",
         "drupal/drupal-extension": "~3.0",
         "craychee/rootcanal": "dev-master",
         "drupal/drupal": "7.42"

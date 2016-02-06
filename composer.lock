@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "421c6ac3cbb8cee734a05a5576709269",
-    "content-hash": "f4d8e9e46a90623d9b8aee3c7b05741e",
+    "hash": "0dcec71ffe06c73042e6f8e6d4f83a47",
+    "content-hash": "55476d057ec3a5181e2e36c911d26d0f",
     "packages": [
         {
             "name": "behat/behat",
@@ -964,6 +964,28 @@
                 "web"
             ],
             "time": "2016-01-23 17:41:44"
+        },
+        {
+            "name": "drupal/features",
+            "version": "dev-7.x-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/features",
+                "reference": "4184b9b169c150f712f15b2cf51686cd56894927"
+            },
+            "require": {
+                "drupal/drupal": "7.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-7.x-2.x": "7.2.x-dev"
+                }
+            },
+            "notification-url": "http://packagist.drupal-composer.org/downloads/",
+            "description": "Provides feature management for Drupal.",
+            "homepage": "https://www.drupal.org/project/features",
+            "time": "2015-10-15 14:26:47"
         },
         {
             "name": "drush/drush",
