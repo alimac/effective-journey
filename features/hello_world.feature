@@ -3,6 +3,7 @@ Feature:
   As a developer,
   I want to know that my module works.
 
+  @step1
   Scenario: Check that required modules are installed and enabled
     Given I am logged in as a user with the "administrator" role
     When I am at "/admin/modules"
