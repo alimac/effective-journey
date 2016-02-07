@@ -66,21 +66,17 @@ Feature:
   @step5 @step5a
   Scenario: Show block on Hello World Article nodes
     Given I am viewing a "Hello World Article" with the title "Article 1"
-    Then I should see the text "Hello World!"
+    Then I should see the text "Hello World!" in the "sidebar_second" region
 
   Scenario: Do not show block on other nodes
     Given I am on the homepage
-    Then I should not see the text "Hello World!"
+    Then I should not see a "block-hello-world-hello-world" element
+
+  Scenario: Do not show block on other nodes
+    Given I am viewing a "Basic page" with the title "Page 1"
+    Then I should not see a "block-hello-world-hello-world" element
 
   @step5 @step5b
-  Scenario: Show links to Hello World Article nodes in block
-    Given "Basic page" content:
-    | title  |
-    | Page 1 |
-    And I am viewing a "Hello World Article" with the title "Article 1"
-    Then I should see the link "Article 1" in the "sidebar_second" region
-    And I should not see the link "Page 1" in the "sidebar_second" region
-
   Scenario: Show links to Hello World Article nodes
     Given "Sections" terms:
       | name     | field_enabled |
@@ -88,17 +84,21 @@ Feature:
       | Misc     | 1             |
       | News     | 0             |
     And "Hello World Article" content:
-      | title     | body        | field_sections |
-      | Article 1 | Lorem ipsum | News           |
-      | Article 2 | Lorem ipsum | News           |
-      | Article 3 | Lorem ipsum | About Us       |
-      | Article 4 | Lorem ipsum | Misc           |
+      | title     | field_sections |
+      | Article 1 | News           |
+      | Article 2 | News           |
+      | Article 3 | About Us       |
+      | Article 4 | Misc           |
+    And "Basic page" content:
+      | title  |
+      | Page 1 |
     And I am viewing a "Hello World Article" with the title "Article 5"
-    Then I should see the link "Article 1" in the "sidebar_second" region
-    And I should see the link "Article 2" in the "sidebar_second" region
+    Then I should not see the link "Article 1" in the "sidebar_second" region
+    And I should not see the link "Article 2" in the "sidebar_second" region
     And I should see the link "Article 3" in the "sidebar_second" region
     And I should see the link "Article 4" in the "sidebar_second" region
-    And I should see the link "Article 5" in the "sidebar_second" region
+    And I should not see the link "Article 5" in the "sidebar_second" region
+    And I should not see the link "Page 1" in the "sidebar_second" region
 
   @step5 @step5c
   Scenario: Hello World Article nodes should have a "Content starts here!" line
