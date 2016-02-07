@@ -1,17 +1,19 @@
 <?php
+/**
+ * @file
+ * Implements hook_install().
+ */
 
 /**
-* Implements hook_install().
-*/
-
+ * Sets block visibility settings per content type.
+ */
 function hello_world_install() {
-  // Set block visibility settings per content type
   $query = db_insert('block_node_type')
     ->fields(array('type', 'module', 'delta'))
     ->values(array(
       'type' => 'hello_world_article',
       'module' => 'hello_world',
-      'delta' => 'hello_world'
+      'delta' => 'hello_world',
     ))
     ->execute();
 }
