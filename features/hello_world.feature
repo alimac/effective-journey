@@ -66,15 +66,16 @@ Feature:
   @step5 @step5a
   Scenario: Show block on Hello World Article nodes
     Given I am viewing a "Hello World Article" with the title "Article 1"
+    Then I should see a "#block-hello-world-hello-world" element
     Then I should see the text "Hello World!" in the "sidebar_second" region
 
   Scenario: Do not show block on other nodes
     Given I am on the homepage
-    Then I should not see a "block-hello-world-hello-world" element
+    Then I should not see a "#block-hello-world-hello-world" element
 
   Scenario: Do not show block on other nodes
     Given I am viewing a "Basic page" with the title "Page 1"
-    Then I should not see a "block-hello-world-hello-world" element
+    Then I should not see a "#block-hello-world-hello-world" element
 
   @step5 @step5b
   Scenario: Show links to Hello World Article nodes
