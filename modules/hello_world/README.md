@@ -34,7 +34,7 @@ Writing Behat tests had several advantages:
 nodes)
 * it helped identify regressions and address them
 * clearly marked acceptance criteria for each requirement
-* allowed me to use a CI service like Circle (with a private GitHub repo)
+* allowed me to use Circle CI (with a private GitHub repo)
 
 Throughout the development process I refactored the tests to add complexity.
 For example, initially the _Hello World_ block appeared on every type of node.
@@ -51,6 +51,7 @@ a developer, knowing what the next steps were.
 * Coder and phpcs
 * Behat, Mink and Drupal Extension
 * Chrome developer tools
+* GitHub and Circle CI
 
 ## Implementation approach
 
