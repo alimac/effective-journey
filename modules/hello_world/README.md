@@ -43,6 +43,15 @@ appears on _Hello World Article_ nodes, and wrote code to that effect. This
 allowed me to see incremental progress in the project, and feel confident as
 a developer, knowing what the next steps were.
 
+### Tools
+
+* PhpStorm
+* Vagrant
+* Composer
+* Coder and phpcs
+* Behat, Mink and Drupal Extension
+* Chrome developer tools
+
 ## Implementation approach
 
 The module makes us of the following hooks:
