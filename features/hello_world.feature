@@ -104,7 +104,7 @@ Feature:
   @step5 @step5c
   Scenario: Hello World Article nodes should have a "Content starts here!" line
     Given I am viewing a "Hello World Article" with the title "Article 1"
-    Then the ".region.region-content .content > :nth-child(1)" element should contain "Content starts here!"
+    Then the ".node-hello-world-article.node-full .content > :nth-child(1)" element should contain "Content starts here!"
 
     Given I am on the homepage
     Then I should not see the text "Content starts here!"

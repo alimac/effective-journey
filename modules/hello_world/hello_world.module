@@ -71,25 +71,29 @@ function hello_world_contents() {
 }
 
 /**
- * Implements hook_page_alter().
+ * Implements hook_node_view().
+ *
+ * Insert 'Content starts here!' message at the top of Hello World Article
+ * nodes
+ *
+ * @param $node
+ *
+ * @param $view_mode
+ *
+ * @return object
+ *
  */
-function hello_world_page_alter(&$page) {
-
-  if (isset($page['content']['system_main']['nodes'])) {
-    foreach ($page['content']['system_main']['nodes'] as $nid => $nodes) {
-      $bundle = $page['content']['system_main']['nodes'][$nid]['#bundle'];
-      $view_mode = $page['content']['system_main']['nodes'][$nid]['#view_mode'];
-
-      if ($bundle == 'hello_world_article' and $view_mode == 'full') {
-        $page['content']['system_main']['hello_world'] = array(
-          '#type' => 'markup',
-          '#markup' => t('Content starts here!'),
-          '#id' => 'hello-world-message',
-          '#weight' => -20,
-          '#prefix' => '<div class="hello-world-message">',
-          '#suffix' => '</div>',
-        );
-      }
+function hello_world_node_view($node, $view_mode) {
+  if ($node->type == "hello_world_article"){
+    if ($view_mode == 'full'){
+      $node->content['content_starts_here'] = array(
+        '#type' => 'markup',
+        '#markup' => t('Content starts here!'),
+        '#weight' => -20,
+        '#prefix' => '<div class="hello-world-message">',
+        '#suffix' => '</div>',
+      );
     }
   }
+  return $node;
 }
