@@ -25,7 +25,7 @@ function hello_world_block_view($delta = '') {
   // Array to contain items for the block to render.
   $items = array();
 
-  // Iterate over the resultset and format as links.
+  // Iterate over the results and format as links.
   foreach ($result as $node) {
     $items[] = array(
       'data' => l($node->title, 'node/' . $node->nid),
@@ -47,19 +47,27 @@ function hello_world_block_view($delta = '') {
 /**
  * Custom content function.
  *
- * Retrieve Hello World Article nodes
+ * Retrieve Hello World Article nodes tagged with enabled terms of the Sections
+ * vocabulary
  *
- * @return
+ * @return array
  *   A result set of nodes.
  */
 function hello_world_contents() {
-  //Use Database API to retrieve Hello World Article nodes.
-  $query = db_select('node', 'n')
-    ->fields('n', array('nid', 'title', 'created'))
-    ->condition('status', 1)
-    ->condition('type', 'hello_world_article')
-    ->execute();
-  return $query;
+
+  $query = db_select('node', 'n');
+  $query->join('taxonomy_index', 'i', 'i.nid=n.nid');
+  $query->join('taxonomy_term_data', 't', 'i.tid=t.tid');
+  $query->join('taxonomy_vocabulary', 'v', 'v.vid=t.vid');
+  $query->join('field_data_field_enabled', 'e', 'e.entity_id=i.tid');
+  $query->fields('n', array('nid', 'title'));
+  $query->condition('status', 1);
+  $query->condition('type', 'hello_world_article');
+  $query->condition('field_enabled_value', 1);
+  $query->condition('v.name', 'Sections');
+
+  $result = $query->execute();
+  return $result;
 }
 
 /**
