@@ -99,3 +99,14 @@ Feature:
     And I should see the link "Article 3" in the "sidebar_second" region
     And I should see the link "Article 4" in the "sidebar_second" region
     And I should see the link "Article 5" in the "sidebar_second" region
+
+  @step5 @step5c
+  Scenario: Hello World Article nodes should have a "Content starts here!" line
+    Given I am viewing a "Hello World Article" with the title "Article 1"
+    Then the ".region.region-content .content > :nth-child(1)" element should contain "Content starts here!"
+
+    Given I am on the homepage
+    Then I should not see the text "Content starts here!"
+
+    Given I am viewing a "Basic page" with the title "Page 1"
+    Then I should not see the text "Content starts here!"
